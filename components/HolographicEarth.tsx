@@ -6,6 +6,9 @@ import { Points, PointMaterial, Text, Line } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 import { HandTrackingState, RegionName } from '../types';
 import { SoundService } from '../services/soundService';
+import earthAtmosUrl from '@/assets/img/earth_atmos_2048.jpg';
+import earthNormalUrl from '@/assets/img/earth_normal_2048.jpg';
+import earthSpecUrl from '@/assets/img/earth_specular_2048.jpg';
 
 interface HolographicEarthProps {
   handTrackingRef: React.MutableRefObject<HandTrackingState>;
@@ -428,9 +431,9 @@ const HolographicEarth: React.FC<HolographicEarthProps> = ({ handTrackingRef, se
 
   // Load Color, Normal, and Specular maps for realistic texture
   const [colorMap, normalMap, specularMap] = useLoader(TextureLoader, [
-    'assets/img/earth_atmos_2048.jpg',
-    'assets/img/earth_normal_2048.jpg',
-    'assets/img/earth_specular_2048.jpg'
+    earthAtmosUrl,
+    earthNormalUrl,
+    earthSpecUrl
   ]);
   
   const satelliteData = useMemo(() => {
